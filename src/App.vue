@@ -1,32 +1,46 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div class="flexible-content">
+        <Sidebar/>
+        <main>
+            <div class="mt-5 p-5">
+                <router-view></router-view>
+            </div>
+        </main>
     </div>
-    <router-view/>
-  </div>
 </template>
 
+<script>
+    import Sidebar from '@/components/Sidebar.vue'
+    import {
+        waves
+    } from "mdbvue";
+
+    export default {
+        name: 'App',
+        components: {
+            Sidebar
+        },
+        mixins: [ waves ]
+    }
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+    @import url( "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" );
+    </style>
 
-#nav {
-  padding: 30px;
-}
+    <style>
+    main {
+        background-color: #ededee;
+    }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
+    .flexible-content {
+        transition: padding-left 0.3s;
+        padding-left: 270px;
+    }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+    @media ( max-width: 1199.98px ) {
+        .flexible-content {
+            padding-left: 0;
+        }
+    }
 </style>
