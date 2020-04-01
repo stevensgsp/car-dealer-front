@@ -130,7 +130,7 @@
                 // this.clean();
                 this.cleanErrors();
 
-                axios.put( 'http://127.0.0.1:8000/api/customers/' + this.$route.params.id, params )
+                axios.put( 'http://127.0.0.1:8001/api/customers/' + this.$route.params.id, params )
                     .then( res => {
                         console.log( res );
                         alert( 'editado' );
@@ -178,7 +178,7 @@
             }
         },
         mounted(){
-            axios.get( 'http://127.0.0.1:8000/api/car-dealers' )
+            axios.get( 'http://127.0.0.1:8001/api/car-dealers' )
                 .then( response => response.data )
                 .then( apiResponse => {
                     let data = apiResponse.data;
@@ -188,7 +188,7 @@
                     err => console.log( err )
                 );
 
-            axios.get( 'http://127.0.0.1:8000/api/customers/' + this.$route.params.id )
+            axios.get( 'http://127.0.0.1:8001/api/customers/' + this.$route.params.id )
                 .then( response => response.data )
                 .then( apiResponse => {
                     let data = apiResponse.data;

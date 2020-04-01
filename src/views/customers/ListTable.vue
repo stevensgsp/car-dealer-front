@@ -72,7 +72,7 @@
         props: [ 'items' ],
         methods: {
             destroy( id ) {
-                axios.delete( 'http://127.0.0.1:8000/api/customers/' + id )
+                axios.delete( 'http://127.0.0.1:8001/api/customers/' + id )
                     .then( response => response.data )
                     .then( apiResponse => {
                         if ( apiResponse.success === true ) {

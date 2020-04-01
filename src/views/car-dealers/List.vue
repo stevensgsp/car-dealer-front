@@ -103,7 +103,7 @@
         },
         methods: {
             destroy( id ) {
-                axios.delete( 'http://127.0.0.1:8000/api/car-dealers/' + id )
+                axios.delete( 'http://127.0.0.1:8001/api/car-dealers/' + id )
                     .then( response => response.data )
                     .then( apiResponse => {
                         if ( apiResponse.success === true ) {
@@ -120,7 +120,7 @@
             }
         },
         mounted(){
-            axios.get( 'http://127.0.0.1:8000/api/car-dealers' )
+            axios.get( 'http://127.0.0.1:8001/api/car-dealers' )
                 .then( response => response.data )
                 .then( apiResponse => {
                     let data = apiResponse.data;

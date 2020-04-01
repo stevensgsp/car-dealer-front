@@ -71,7 +71,7 @@
         },
         methods: {},
         mounted(){
-            axios.get( 'http://127.0.0.1:8000/api/car-dealers/' + this.$route.params.id )
+            axios.get( 'http://127.0.0.1:8001/api/car-dealers/' + this.$route.params.id )
                 .then( response => response.data )
                 .then( apiResponse => {
                     let data = apiResponse.data;

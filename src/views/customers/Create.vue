@@ -124,7 +124,7 @@
                 // this.clean();
                 this.cleanErrors();
 
-                axios.post( 'http://127.0.0.1:8000/api/customers', params )
+                axios.post( 'http://127.0.0.1:8001/api/customers', params )
                     .then( res => {
                         console.log( res );
                         alert( 'creado' );
@@ -167,7 +167,7 @@
             }
         },
         mounted(){
-            axios.get( 'http://127.0.0.1:8000/api/car-dealers' )
+            axios.get( 'http://127.0.0.1:8001/api/car-dealers' )
                 .then( response => response.data )
                 .then( apiResponse => {
                     let data = apiResponse.data;
