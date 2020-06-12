@@ -47,14 +47,14 @@
 
                                 <!-- Address -->
                                 <mdb-input label="Dirección" type="email" v-model="customer.address"
-                                    :inputClass="typeof errors.address !== 'undefined' && 'is-invalid'"
+                                    :inputClass="typeof errors.address !== 'undefined' ? 'is-invalid' : ''"
                                     :invalidFeedback="errors.address"/>
 
                                 <!-- CarDealer -->
                                 <div class="form-group">
                                     <select class="browser-default custom-select" v-model="customer.car_dealer_id"
                                         :class="typeof errors.car_dealer_id !== 'undefined' && 'is-invalid'" novalidate>
-                                        <option disabled selected>Seleccione concesionario</option>
+                                        <option value="0">Seleccione concesionario</option>
                                         <option v-for="carDealer in carDealers" :key="carDealer.id" :value="carDealer.id">{{ carDealer.name }}</option>
                                     </select>
                                     <div class="invalid-feedback">{{ errors.car_dealer_id }}</div>
@@ -167,6 +167,7 @@
             }
         },
         mounted(){
+            this.customer.car_dealer_id = 0;
             axios.get( 'http://127.0.0.1:8001/api/car-dealers' )
                 .then( response => response.data )
                 .then( apiResponse => {

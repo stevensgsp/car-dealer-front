@@ -44,7 +44,7 @@
                                 <div class="form-group">
                                     <select class="browser-default custom-select" v-model="carDealer.city_id"
                                         :class="typeof errors.city_id !== 'undefined' && 'is-invalid'" novalidate>
-                                        <option disabled selected>Seleccione concesionario</option>
+                                        <option value="0">Seleccione ciudad</option>
                                         <option v-for="city in cities" :key="city.id" :value="city.id">{{ city.name }}</option>
                                     </select>
                                     <div class="invalid-feedback">{{ errors.city_id }}</div>
@@ -153,6 +153,7 @@
             }
         },
         mounted(){
+            this.carDealer.city_id = 0;
             axios.get( 'http://127.0.0.1:8001/api/cities' )
                 .then( response => response.data )
                 .then( apiResponse => {
